@@ -18,8 +18,25 @@ const config: Config = {
         success:   "#27AE60",
       },
       fontFamily: {
-        heading: ["var(--font-poppins)", "sans-serif"],
-        body:    ["var(--font-inter)", "sans-serif"],
+        heading: ["var(--font-national2)", "sans-serif"],
+        body:    ["var(--font-roobert)", "sans-serif"],
+      },
+      keyframes: {
+        "page-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+            filter: "blur(8px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+            filter: "blur(0)",
+          },
+        },
+      },
+      animation: {
+        "page-in": "page-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
     },
   },

@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-});
+import { national2, roobert } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "IMEX Internacional | Ganchos y Colgadores para la Industria Textil en Perú",
@@ -35,7 +22,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="es" className={`${national2.variable} ${roobert.variable}`}>
       <body className="font-body antialiased bg-white text-dark-bg">
         <Navbar />
         <main>{children}</main>
