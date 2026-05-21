@@ -40,7 +40,7 @@ interface MotionPresetProps {
     HTMLMotionProps<"div">,
     "children" | "className" | "ref" | "transition"
   >;
-  ref?: React.Ref<HTMLElement>;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 const motionComponents = motion as typeof motion & Record<string, typeof motion.div>;
@@ -61,7 +61,7 @@ function MotionPreset({
   zoom = false,
   motionProps = {},
 }: MotionPresetProps) {
-  const localRef = React.useRef<HTMLElement>(null);
+  const localRef = React.useRef<HTMLDivElement>(null);
 
   React.useImperativeHandle(ref, () => localRef.current!);
 
