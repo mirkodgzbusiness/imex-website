@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getFeaturedProducts } from "@/data/products";
+
+export const metadata: Metadata = {
+  title: "IMEX Internacional | Ganchos y Colgadores para la Industria Textil en Perú",
+  description:
+    "Más de 10 años importando y exportando ganchos y colgadores de alta calidad para la industria textil en Perú. Categorías: infantil, adulto, lavandería y más.",
+  openGraph: {
+    title: "IMEX Internacional | Ganchos y Colgadores",
+    description: "Más de 10 años importando ganchos y colgadores para la industria textil en Perú.",
+    url: "https://imexinternacional.com",
+    type: "website",
+  },
+};
 import { categories } from "@/data/categories";
 import { WA_GENERAL } from "@/lib/whatsapp";
 import ProductCard from "@/components/ProductCard";
+import HeroVideo from "@/components/HeroVideo";
+import LogoCloudSection from "@/components/LogoCloudSection";
 
 const stats = [
   { value: "+10", label: "Años en el mercado" },
@@ -16,23 +31,32 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/90 to-accent/70 text-white overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
+      <section className="relative min-h-[640px] md:min-h-[720px] text-white overflow-hidden flex items-center">
+        <HeroVideo />
+        <div
+          className="absolute inset-0"
+          aria-hidden
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(0,3,29,0.88) 0%, rgba(11,92,255,0.52) 100%)",
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 w-full">
           <div className="max-w-2xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">
+            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-5">
               IMEX Internacional
             </p>
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+            <h1 className="font-heading font-bold text-4xl md:text-[2.75rem] lg:text-[3.4375rem] leading-[1.05] mb-6">
               Ganchos y colgadores de alta calidad para tu negocio
             </h1>
-            <p className="text-white/80 text-lg mb-10 leading-relaxed">
+            <p className="text-white/75 text-lg md:text-xl mb-10 leading-relaxed max-w-xl">
               Importación y exportación de productos para la industria textil y el
               comercio en Perú.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/productos"
-                className="bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full transition-colors"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3.5 rounded-full transition-colors shadow-lg shadow-primary/30"
               >
                 Ver Catálogo
               </Link>
@@ -40,7 +64,7 @@ export default function HomePage() {
                 href={WA_GENERAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-white/60 hover:border-white text-white font-semibold px-8 py-3 rounded-full transition-colors"
+                className="border border-white/40 hover:border-white/80 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-semibold px-8 py-3.5 rounded-full transition-all"
               >
                 Contáctenos
               </a>
@@ -117,7 +141,13 @@ export default function HomePage() {
       </section>
 
       {/* SERIGRAFÍA BANNER */}
-      <section className="bg-dark-bg text-white py-20">
+      <section
+        className="text-white py-24"
+        style={{
+          background:
+            "radial-gradient(ellipse 400% 240% at 50% 100%, #fff, #fff 10%, 15%, #c7c5fd 16%, rgba(154,103,250,.6) 17%, 21%, #0b5cff 28%, 35%, #00031d 45%, #00031d)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">
@@ -141,48 +171,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MISIÓN / VISIÓN */}
-      <section className="bg-light-bg py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                <span className="text-2xl">🎯</span>
-              </div>
-              <h3 className="font-heading font-bold text-xl text-dark-bg mb-3">Misión</h3>
-              <p className="text-mid-gray leading-relaxed">
-                Ser los primeros en atender a nuestros clientes y proveedores con fines
-                de cooperación mutua para alcanzar los objetivos de negocios.
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-5">
-                <span className="text-2xl">🌎</span>
-              </div>
-              <h3 className="font-heading font-bold text-xl text-dark-bg mb-3">Visión</h3>
-              <p className="text-mid-gray leading-relaxed">
-                Llegar a ser una de las empresas más reconocidas a nivel nacional e
-                internacional, brindando productos y servicios de alta calidad.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LogoCloudSection />
 
       {/* CTA FINAL */}
-      <section className="bg-gradient-to-r from-secondary to-secondary/80 text-white py-16">
+      <section className="bg-dark-bg text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">
             ¿Listo para cotizar?
           </h2>
-          <p className="text-white/80 mb-8 text-lg">
+          <p className="text-white/75 mb-8 text-lg">
             Escríbenos por WhatsApp y te respondemos de inmediato.
           </p>
           <a
             href={WA_GENERAL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white text-secondary font-bold px-8 py-4 rounded-full hover:bg-gray-50 transition-colors text-lg shadow-lg"
+            className="inline-flex items-center gap-3 bg-white text-[#0b5cff] font-bold px-8 py-4 rounded-full hover:bg-white/90 transition-colors text-lg shadow-xl"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />

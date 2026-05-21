@@ -59,7 +59,7 @@ export const categories: Category[] = [
   {
     slug: "muebles",
     name: "Muebles",
-    path: "/categoria-producto/muebles",
+    path: "/muebles",
     description: "Muebles y estructuras para exhibición textil.",
     icon: "🪑",
   },

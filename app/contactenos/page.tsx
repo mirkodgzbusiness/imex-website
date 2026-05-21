@@ -38,7 +38,7 @@ export default function ContactenosPage() {
                   <div>
                     <p className="font-semibold text-dark-bg">Dirección</p>
                     <p className="text-mid-gray text-sm">
-                      Av. Marco Puente Llanos, Santa Anita, Lima, Perú
+                      Calle Miami Mz B Lt 23, Urb. Las Garzas de Ate, Lima, Perú
                     </p>
                   </div>
                 </div>
@@ -48,7 +48,7 @@ export default function ContactenosPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-dark-bg">Teléfono / WhatsApp</p>
-                    <p className="text-mid-gray text-sm">+51 994 938 229</p>
+                    <p className="text-mid-gray text-sm">443-7524 &nbsp;|&nbsp; 994 938 229</p>
                   </div>
                 </div>
               </div>
@@ -68,13 +68,18 @@ export default function ContactenosPage() {
               </div>
             </div>
 
-            {/* Mapa placeholder */}
-            <div className="bg-light-bg rounded-2xl overflow-hidden h-80 lg:h-auto flex items-center justify-center">
-              <div className="text-center text-mid-gray">
-                <span className="text-5xl block mb-3">🗺️</span>
-                <p className="text-sm font-medium">Santa Anita, Lima, Perú</p>
-                <p className="text-xs mt-1">(Mapa de Google Maps — pendiente de integrar)</p>
-              </div>
+            {/* Mapa */}
+            <div className="rounded-2xl overflow-hidden h-80 lg:h-full min-h-[340px] shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/d/embed?mid=1xHeW7lakW61ZjcL2G7lJMAqOsJs"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "340px" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación IMEX Internacional"
+              />
             </div>
           </div>
         </div>

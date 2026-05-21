@@ -11,7 +11,10 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-bg text-white">
+    <footer
+      className="text-white"
+      style={{ background: "linear-gradient(135deg, #0b5cff 0%, #264cab 50%, #00031d 100%)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Col 1: Logo + descripción */}
@@ -19,7 +22,7 @@ export default function Footer() {
             <span className="font-heading font-bold text-2xl text-white tracking-tight">
               IMEX
             </span>
-            <p className="mt-3 text-sm text-gray-400 leading-relaxed">
+            <p className="mt-3 text-base text-white leading-relaxed">
               Importación y exportación de productos para la industria textil y el
               comercio en Perú.
             </p>
@@ -35,7 +38,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-accent transition-colors"
+                    className="text-base text-white hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -49,7 +52,7 @@ export default function Footer() {
             <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-gray-300 mb-4">
               Contacto
             </h3>
-            <div className="space-y-2 text-sm text-gray-400">
+            <div className="space-y-2 text-base text-white">
               <p>Tel: +51 994 938 229</p>
               <p>Santa Anita, Lima, Perú</p>
             </div>
@@ -59,7 +62,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-white hover:text-accent transition-colors"
               >
                 <WhatsAppIcon />
               </a>
@@ -68,7 +71,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-white hover:text-accent transition-colors"
               >
                 <FacebookIcon />
               </a>
@@ -77,7 +80,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-white hover:text-accent transition-colors"
               >
                 <YouTubeIcon />
               </a>
@@ -85,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-gray-500">
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-base text-white">
           © {new Date().getFullYear()} IMPOR EXPOR PERU S.A.C. — Todos los derechos reservados.
         </div>
       </div>

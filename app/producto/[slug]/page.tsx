@@ -18,6 +18,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.name} | IMEX Internacional`,
     description: product.description,
+    openGraph: {
+      title: `${product.name} | IMEX Internacional`,
+      description: product.description,
+      images: product.images[0] ? [{ url: product.images[0], alt: product.name }] : [],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | IMEX Internacional`,
+      description: product.description,
+    },
   };
 }
 
@@ -28,8 +39,28 @@ export default function ProductoPage({ params }: Props) {
   const related = getRelatedProducts(product.slug, product.category);
   const waUrl = waProduct(product.name);
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: product.images,
+    sku: product.ref,
+    brand: { "@type": "Brand", name: "IMEX Internacional" },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "PEN",
+      seller: { "@type": "Organization", name: "IMEX Internacional" },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
         <nav className="text-sm text-mid-gray mb-8 flex items-center gap-2">

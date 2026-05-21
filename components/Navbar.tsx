@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { WA_GENERAL } from "@/lib/whatsapp";
 
@@ -16,25 +17,26 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo placeholder */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-heading font-bold text-2xl text-primary tracking-tight">
-            IMEX
-          </span>
-          <span className="hidden sm:block text-xs text-mid-gray leading-tight">
-            Internacional
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="IMEX Internacional"
+            width={140}
+            height={48}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-dark-bg hover:text-primary transition-colors"
+                className="text-sm font-medium text-[#1a1a2e] hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
@@ -42,21 +44,20 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right icons */}
+        {/* Right actions */}
         <div className="flex items-center gap-3">
           <a
             href={WA_GENERAL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 bg-secondary hover:bg-secondary/90 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
+            className="hidden md:flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
           >
             <WhatsAppIcon className="w-4 h-4" />
             WhatsApp
           </a>
 
-          {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-dark-bg"
+            className="md:hidden p-2 text-[#1a1a2e]"
             onClick={() => setOpen(!open)}
             aria-label="Menú"
           >
@@ -67,12 +68,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t px-4 py-4 space-y-3">
+        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="block text-sm font-medium text-dark-bg hover:text-primary"
+              className="block text-sm font-medium text-[#1a1a2e] hover:text-primary"
               onClick={() => setOpen(false)}
             >
               {link.label}
@@ -82,7 +83,7 @@ export default function Navbar() {
             href={WA_GENERAL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-secondary text-white text-sm font-semibold px-4 py-2 rounded-full w-fit"
+            className="flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-full w-fit"
           >
             <WhatsAppIcon className="w-4 h-4" />
             WhatsApp
