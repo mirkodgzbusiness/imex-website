@@ -31,32 +31,29 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[640px] md:min-h-[720px] text-white overflow-hidden flex items-center">
+      <section className="relative min-h-[640px] md:min-h-[720px] text-white overflow-hidden flex items-end md:items-start">
         <HeroVideo />
         <div
           className="absolute inset-0"
           aria-hidden
           style={{
             background:
-              "linear-gradient(135deg, rgba(0,3,29,0.88) 0%, rgba(11,92,255,0.52) 100%)",
+              "linear-gradient(to top, rgb(0 3 29 / 80%) 0%, rgb(0 3 29 / 20%) 50%, rgb(11 92 255 / 5%) 100%)",
           }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-10 md:pt-32 lg:pt-36 md:pb-16 w-full">
           <div className="max-w-2xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-5">
-              IMEX Internacional
-            </p>
-            <h1 className="font-heading font-bold text-4xl md:text-[2.75rem] lg:text-[3.4375rem] leading-[1.05] mb-6">
+            <h1 className="font-heading font-bold text-4xl md:text-[2.75rem] lg:text-[3.4375rem] leading-[1.05] mb-6 [text-shadow:0_2px_4px_rgba(0,3,29,0.85),0_8px_32px_rgba(0,3,29,0.55)]">
               Ganchos y colgadores de alta calidad para tu negocio
             </h1>
-            <p className="text-white/75 text-lg md:text-xl mb-10 leading-relaxed max-w-xl">
+            <p className="text-white/90 text-lg md:text-xl mb-10 leading-relaxed max-w-xl [text-shadow:0_1px_3px_rgba(0,3,29,0.8),0_4px_16px_rgba(0,3,29,0.45)]">
               Importación y exportación de productos para la industria textil y el
               comercio en Perú.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="/productos"
-                className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3.5 rounded-full transition-colors shadow-lg shadow-primary/30"
+                className="border border-white bg-primary hover:bg-secondary text-white font-semibold px-8 py-3.5 rounded-full transition-colors shadow-lg shadow-primary/40 hover:shadow-secondary/40 text-center w-full sm:w-auto"
               >
                 Ver Catálogo
               </Link>
@@ -64,7 +61,7 @@ export default function HomePage() {
                 href={WA_GENERAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-white/40 hover:border-white/80 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-semibold px-8 py-3.5 rounded-full transition-all"
+                className="border border-white bg-secondary hover:bg-primary text-white font-semibold px-8 py-3.5 rounded-full transition-colors shadow-lg shadow-secondary/40 hover:shadow-primary/40 text-center w-full sm:w-auto"
               >
                 Contáctenos
               </a>

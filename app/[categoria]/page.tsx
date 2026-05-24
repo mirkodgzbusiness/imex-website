@@ -39,7 +39,7 @@ export default function CategoriaPage({
         className="text-white py-20"
         style={{
           background:
-            "radial-gradient(ellipse 400% 240% at 50% 100%, #fff, #fff 10%, 15%, #c7c5fd 16%, rgba(154,103,250,.6) 17%, 21%, #0b5cff 28%, 35%, #00031d 45%, #00031d)",
+            "radial-gradient(ellipse 400% 240% at 50% 140%, #c7c5fd, #c7c5fd 10%, 15%, rgba(154,103,250,.6) 16%, 21%, #0b5cff 28%, 35%, #00031d 45%, #00031d)",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Image from "next/image";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
-import { getProductBySlug, getRelatedProducts, products } from "@/data/products";
+import { getProductBySlug, getRelatedProducts, products, formatProductRef, getProductLabel } from "@/data/products";
 import { waProduct } from "@/lib/whatsapp";
 import ProductCard from "@/components/ProductCard";
+import ProductGallery from "@/components/ProductGallery";
 
 type Props = { params: { slug: string } };
 
@@ -15,18 +15,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(params.slug);
   if (!product) return {};
+  const pageTitle = `${product.name} (${formatProductRef(product.ref)}) | IMEX Internacional`;
   return {
-    title: `${product.name} | IMEX Internacional`,
+    title: pageTitle,
     description: product.description,
     openGraph: {
-      title: `${product.name} | IMEX Internacional`,
+      title: pageTitle,
       description: product.description,
       images: product.images[0] ? [{ url: product.images[0], alt: product.name }] : [],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} | IMEX Internacional`,
+      title: pageTitle,
       description: product.description,
     },
   };
@@ -35,9 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function ProductoPage({ params }: Props) {
   const product = getProductBySlug(params.slug);
   if (!product) notFound();
+  if (params.slug !== product.slug) {
+    redirect(`/producto/${product.slug}`);
+  }
 
   const related = getRelatedProducts(product.slug, product.category);
-  const waUrl = waProduct(product.name);
+  const waUrl = waProduct(getProductLabel(product));
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -45,7 +49,7 @@ export default function ProductoPage({ params }: Props) {
     name: product.name,
     description: product.description,
     image: product.images,
-    sku: product.ref,
+    sku: formatProductRef(product.ref),
     brand: { "@type": "Brand", name: "IMEX Internacional" },
     offers: {
       "@type": "Offer",
@@ -68,46 +72,17 @@ export default function ProductoPage({ params }: Props) {
           <span>/</span>
           <Link href="/productos" className="hover:text-primary">Productos</Link>
           <span>/</span>
-          <span className="text-dark-bg font-medium">{product.name}</span>
+          <span className="text-dark-bg font-medium">{formatProductRef(product.ref)}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Galería */}
-          <div className="space-y-4">
-            <div className="relative h-80 lg:h-96 bg-light-bg rounded-2xl overflow-hidden">
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                fill
-                className="object-contain p-6"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
-            {product.images.length > 1 && (
-              <div className="flex gap-3">
-                {product.images.map((img, i) => (
-                  <div
-                    key={i}
-                    className="relative w-20 h-20 bg-light-bg rounded-lg overflow-hidden border-2 border-transparent hover:border-primary transition-colors cursor-pointer"
-                  >
-                    <Image
-                      src={img}
-                      alt={`${product.name} vista ${i + 1}`}
-                      fill
-                      className="object-contain p-2"
-                      sizes="80px"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <ProductGallery images={product.images} productName={product.name} />
 
           {/* Info */}
           <div>
             <p className="text-accent text-sm font-semibold uppercase tracking-wide mb-2">
-              {product.ref}
+              {formatProductRef(product.ref)}
             </p>
             <h1 className="font-heading font-bold text-3xl text-dark-bg mb-4">
               {product.name}

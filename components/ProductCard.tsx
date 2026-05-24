@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { Product } from "@/data/products";
+import { formatProductRef, type Product } from "@/data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -18,13 +18,13 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="p-4">
-        <p className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">
-          {product.ref}
+        <p className="text-sm text-dark-bg font-semibold uppercase tracking-wide mb-1">
+          {formatProductRef(product.ref)}
         </p>
-        <h3 className="font-heading font-semibold text-dark-bg text-sm leading-snug mb-3">
+        <h3 className="font-heading font-semibold text-dark-bg text-base leading-snug mb-3">
           {product.name}
         </h3>
-        <span className="inline-block text-xs font-semibold text-primary border border-primary rounded-full px-3 py-1 group-hover:bg-primary group-hover:text-white transition-colors">
+        <span className="inline-block text-sm font-semibold text-primary border border-primary rounded-full px-4 py-2 group-hover:bg-secondary group-hover:border-secondary group-hover:text-white transition-colors">
           Ver detalle
         </span>
       </div>
