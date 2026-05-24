@@ -21,7 +21,14 @@ export default function HeroVideo() {
 
     import("hls.js").then(({ default: Hls }) => {
       if (!Hls.isSupported() || !videoRef.current) return;
-      const instance = new Hls();
+      const instance = new Hls({
+        abrEwmaDefaultEstimate: 8_000_000,
+        capLevelToPlayerSize: false,
+      });
+      // Force the highest available quality level as soon as the manifest is parsed
+      instance.on(Hls.Events.MANIFEST_PARSED, (_e, data) => {
+        instance.currentLevel = data.levels.length - 1;
+      });
       instance.loadSource(HERO_VIDEO_HLS);
       instance.attachMedia(videoRef.current);
       hls = instance;
@@ -39,6 +46,7 @@ export default function HeroVideo() {
       muted
       loop
       playsInline
+      poster="https://customer-cps5jrevd1ex7gds.cloudflarestream.com/e473a01f40d34c5acc6a0fcf4983e56e/thumbnails/thumbnail.jpg"
       className="absolute inset-0 h-full w-full object-cover"
       aria-hidden
     />

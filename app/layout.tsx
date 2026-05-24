@@ -47,6 +47,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${national2.variable} ${roobert.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://customer-cps5jrevd1ex7gds.cloudflarestream.com" />
+        <link rel="dns-prefetch" href="https://customer-cps5jrevd1ex7gds.cloudflarestream.com" />
+        <link
+          rel="preload"
+          as="fetch"
+          crossOrigin="anonymous"
+          href="https://customer-cps5jrevd1ex7gds.cloudflarestream.com/e473a01f40d34c5acc6a0fcf4983e56e/manifest/video.m3u8"
+        />
+      </head>
       <body className="font-body antialiased bg-white text-dark-bg">
         <script
           type="application/ld+json"
