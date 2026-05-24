@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/10 text-center text-base text-white">
-          © {new Date().getFullYear()} IMPOR EXPOR PERU S.A.C. — Todos los derechos reservados.
+          © {new Date().getFullYear()} IMPOR EXPOR PERU S.A.C. — Todos los derechos reservados
         </div>
       </div>
     </footer>
