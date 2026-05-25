@@ -58,7 +58,7 @@ export const categories: Category[] = [
   },
   {
     slug: "muebles",
-    name: "Muebles",
+    name: "Bolsas para ropas de bebé",
     path: "/muebles",
     description: "Muebles y estructuras para exhibición textil.",
     icon: "🪑",

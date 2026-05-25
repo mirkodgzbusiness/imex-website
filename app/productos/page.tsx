@@ -31,7 +31,7 @@ export default function ProductosPage() {
           <div className="flex flex-wrap gap-2">
             <Link
               href="/productos"
-              className="text-xs font-semibold px-4 py-2 rounded-full bg-primary text-white"
+              className="text-xs font-semibold px-4 py-2 rounded-full border-2 border-secondary bg-secondary text-white"
             >
               Todos
             </Link>
@@ -39,7 +39,7 @@ export default function ProductosPage() {
               <Link
                 key={cat.slug}
                 href={cat.path}
-                className="text-xs font-semibold px-4 py-2 rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
+                className="text-xs font-semibold px-4 py-2 rounded-full border-2 border-primary/30 text-primary hover:bg-secondary hover:border-secondary hover:text-white transition-colors"
               >
                 {cat.name}
               </Link>

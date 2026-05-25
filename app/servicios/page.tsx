@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WA_GENERAL } from "@/lib/whatsapp";
+import GaleriaSlider from "@/components/GaleriaSlider";
 
 export const metadata: Metadata = {
   title: "Servicios de Serigrafía | IMEX Internacional",
@@ -27,8 +28,8 @@ export default function ServiciosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">
-                Servicio Principal
+              <p className="text-black font-semibold text-sm uppercase tracking-widest mb-4">
+                Servicio de Serigrafía e Impresión
               </p>
               <h2 className="font-heading font-bold text-3xl text-dark-bg mb-6">
                 Serigrafía e impresión para ganchos
@@ -40,9 +41,6 @@ export default function ServiciosPage() {
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                    <span className="text-lg">💪</span>
-                  </div>
                   <div>
                     <h4 className="font-heading font-semibold text-dark-bg mb-1">
                       Durabilidad garantizada
@@ -54,9 +52,6 @@ export default function ServiciosPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                    <span className="text-lg">🎨</span>
-                  </div>
                   <div>
                     <h4 className="font-heading font-semibold text-dark-bg mb-1">
                       Personalización completa
@@ -72,19 +67,13 @@ export default function ServiciosPage() {
                 href={WA_GENERAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full transition-colors"
+                className="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-full transition-colors"
               >
                 Solicitar cotización
               </a>
             </div>
 
-            {/* Placeholder visual */}
-            <div className="bg-light-bg rounded-2xl h-80 flex items-center justify-center">
-              <div className="text-center text-mid-gray">
-                <span className="text-6xl block mb-3">🖨️</span>
-                <p className="text-sm">Imagen de servicio (pendiente)</p>
-              </div>
-            </div>
+            <GaleriaSlider />
           </div>
         </div>
       </section>

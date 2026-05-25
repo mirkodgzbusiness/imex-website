@@ -5,9 +5,9 @@ import Image from "next/image";
 
 const ZOOM = 2.5;
 
-type Props = { images: string[]; productName: string };
+type Props = { images: string[]; productName: string; thumbnailLabels?: string[] };
 
-export default function ProductGallery({ images, productName }: Props) {
+export default function ProductGallery({ images, productName, thumbnailLabels }: Props) {
   const [selected, setSelected] = useState(0);
   const [pos, setPos] = useState({ x: 50, y: 50 });
   const [zooming, setZooming] = useState(false);
@@ -101,6 +101,14 @@ export default function ProductGallery({ images, productName }: Props) {
                 className="object-contain p-2"
                 sizes="80px"
               />
+              {(() => {
+                const label = thumbnailLabels?.[i] ?? (i === 1 ? "Manual de uso" : "");
+                return label ? (
+                  <span className="absolute bottom-0 inset-x-0 bg-dark-bg/70 text-white text-[9px] font-semibold text-center py-0.5 leading-tight">
+                    {label}
+                  </span>
+                ) : null;
+              })()}
             </button>
           ))}
         </div>

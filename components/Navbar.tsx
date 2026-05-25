@@ -39,13 +39,18 @@ export default function Navbar() {
             />
           </Link>
 
+          {/* Company name */}
+          <span className="text-xs md:text-sm font-semibold text-[#1a1a2e] tracking-wide">
+            IMPOR EXPOR PERU S.A.C.
+          </span>
+
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-[#1a1a2e] hover:text-primary transition-colors"
+                  className="text-sm font-medium text-[#1a1a2e] hover:text-secondary transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -59,7 +64,7 @@ export default function Navbar() {
               href={WA_GENERAL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
+              className="hidden md:flex items-center gap-1.5 bg-primary hover:bg-secondary text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
             >
               <WhatsAppIcon className="w-4 h-4" />
               WhatsApp
@@ -117,7 +122,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={close}
-                  className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-[#1a1a2e] font-medium hover:bg-gray-50 hover:text-primary transition-colors"
+                  className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-[#1a1a2e] font-medium hover:bg-gray-50 hover:text-secondary transition-colors"
                   style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
                 >
                   {link.label}
@@ -134,7 +139,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={close}
-            className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-4 py-3 rounded-full transition-colors w-full"
+            className="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-white font-semibold px-4 py-3 rounded-full transition-colors w-full"
           >
             <WhatsAppIcon className="w-5 h-5" />
             Escribir por WhatsApp

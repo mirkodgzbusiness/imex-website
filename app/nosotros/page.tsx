@@ -25,7 +25,7 @@ export default function NosotrosPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-4">
+            <p className="text-sm font-semibold text-black uppercase tracking-widest mb-4">
               Quiénes somos
             </p>
             <h2 className="font-heading font-bold text-3xl text-dark-bg mb-6">
@@ -73,13 +73,13 @@ export default function NosotrosPage() {
       <section className="py-16 text-center">
         <div className="max-w-xl mx-auto px-4">
           <h2 className="font-heading font-bold text-2xl text-dark-bg mb-4">
-            ¿Quieres trabajar con nosotros?
+            Hola es un gusto saludarte, ¿cómo podemos ayudarte hoy?
           </h2>
           <a
             href={WA_GENERAL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full transition-colors"
+            className="inline-block bg-primary hover:bg-secondary text-white font-semibold px-8 py-3 rounded-full transition-colors"
           >
             Escríbenos por WhatsApp
           </a>

@@ -6,6 +6,7 @@ export type Product = {
   description: string;
   images: string[];
   featured?: boolean;
+  thumbnailLabels?: string[];
 };
 
 export function formatProductRef(ref: string): string {
@@ -49,6 +50,7 @@ export const products: Product[] = [
       "https://imporexporperu.com/wp-content/uploads/2019/03/Ref_05B.jpg",
       "https://imporexporperu.com/wp-content/uploads/2019/03/ref05b_2.jpg",
     ],
+    thumbnailLabels: ["", "Manual de uso"],
     featured: true,
   },
   {
